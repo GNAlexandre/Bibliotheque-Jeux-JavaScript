@@ -1,0 +1,210 @@
+<!--Projet Java Alexandre.Tournel et Julian.Wicke-->
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Required meta tags -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" type="text/css" href="style_catalogue_V4.css" />
+    <title>Catalogue de jeu de société</title>
+  </head>
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="10">
+    <!--Navigation-->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Sommaire</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+        aria-controls="navbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#home"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#MiseAvant">Jeux du moment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Liste">Les jeux</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#formulaire">Ajouter un jeu</a>
+          </li>
+        </ul>
+
+        <!--Barre de recherche (faire un formulaire dans la recherche)-->
+        <form class="form-inline my-2 my-lg-0" onsubmit="Nouvelle_Recherche()">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Chercher un jeu"
+            id="Nom_rech"
+            aria-label="Recherche"
+          />
+
+          <!--Formulaire Test-->
+          <label for="une_date">Après Date</label>
+          <input id="Date_1" type="date" />
+          <label for="une_date">Avant Date</label>
+          <input id="Date_2" type="date" />
+          <label for="une_date">Genre_rech</label>
+          <input id="Genre_rech" type="date" />
+          <label for="une_date">Age_in_rech</label>
+          <input id="Age_min_rech" type="number" />
+          <label for="une_date">Duree_rech</label>
+          <input id="Duree_rech" type="number" />
+          <label for="une_date">Joueur_rech</label>
+          <input id="Joueur_rech" type="number" />
+
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Rechercher
+          </button>
+        </form>
+        <form onsubmit="Reset_Research()">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Reset
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <!--Header-->
+    <header>
+      <h1>
+        <b><u>Notre catalogue de jeux</u></b>
+      </h1>
+    </header>
+
+    <!--Contenu-->
+    <div id="Contenu">
+      <!--Jeu en avant-->
+      <div id="MiseAvant" class="MiseAvant"></div>
+
+      <!--Resultat Recherche-->
+      <div id="ResultatRecherche" class="ResultAvant"></div>
+
+      <!--Liste des jeux-->
+      <div id="Liste" class="Liste"><!----></div>
+
+      <!--Partie Formulaire-->
+      <form
+        id="formulaire"
+        onsubmit="Ajouter_Jeux()"
+        onreset="return resetForm(this)"
+      >
+        <fieldset>
+          <h2>
+            <b><u>Ajouter un jeu</u></b>
+          </h2>
+
+          <label for="un_nom">Nom du jeu</label>
+          <input id="un_nom" type="text" placeholder="ex: Monopoly" />
+          <span id="aideNom"></span>
+          <br />
+          <label for="une_date">Date de sortie</label>
+          <input id="une_date" type="date" />
+          <br />
+          <label for="nb_min">Nombre de joueur minimum</label>
+          <input id="nb_min" type="number" min="0" />
+          <br />
+          <label for="nb_max">Nombre de joueur maximum</label>
+          <input id="nb_max" type="number" min="0" />
+          <br />
+          <label for="tps_de_jeu">Durée d'une partie</label>
+          <input id="tps_de_jeu" type="time" />
+          <br />
+          <label for="age_min">Age minimum requis pour y jouer</label>
+          <input id="age_min" type="number" min="0" />
+          <br />
+          Quel est le genre de ce jeu ?
+          <select name="genre" id="genre">
+            <option value="j_d">Jeu de dé</option>
+            <option value="j_adresse">Jeu d'adresse</option>
+            <option value="j_amb">Jeu d'ambiance</option>
+            <option value="j_cartes">Jeu de cartes</option>
+            <option value="j_plat">Jeu de plateau</option>
+            <option value="j_memo">Jeu de mémoire</option>
+            <option value="j_connai">Jeu de connaissance</option>
+            <option value="j_let">Jeu de lettres</option>
+            <option value="j_log">Jeu de logique</option>
+            <option value="j_pion">Jeu de pions</option>
+            <option value="j_edu">Jeu éducatif</option>
+            <option value="j_d">Jeu d'enquête</option>
+            <option value="j_coop">Jeu de coopération</option>
+            <option value="j_bluff">Jeu de bluff</option>
+            <option value="j_strat">Jeu de stratégie</option>
+            <option value="j_gest">Jeu de gestions</option>
+            <option value="j_hasard">Jeu de hasard</option>
+            <option value="j_role">Jeu de rôle</option>
+            <option value="j_crea">Jeu créatif</option>
+            <option value="j_mime">Jeu de mime</option>
+          </select>
+          <br />
+          <label for="descrip">Descriptif du jeu</label>
+          <br />
+          <textarea
+            id="descrip"
+            type="text"
+            rows="3"
+            cols="50"
+            onsubmit="verifDescrip(this)"
+          ></textarea>
+          <br />
+          <label for="prix">Prix du jeu (en euros)</label>
+          <input id="prix" type="float" min="0" />
+          <br />
+          <br />
+          <button type="submit" value="Ajouter">Ajouter un jeu</button>
+          <button type="reset" value="Annuler">Annuler</button>
+        </fieldset>
+      </form>
+    </div>
+    <form onsubmit="Reset_Objet()">
+      <input type="submit" value="Reset" />
+    </form>
+
+    <script src="script_catalogue_V4.js"></script>
+
+    <!-- Activation de Bottstrap-->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

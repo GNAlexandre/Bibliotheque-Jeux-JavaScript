@@ -1,0 +1,88 @@
+/*Projet Java Alexandre.Tournel et Julian.Wicke*/
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-image: url(fond1.jfif);
+}
+
+header {
+  text-align: center;
+}
+
+.Contenu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 10%;
+  width: 80%;
+  justify-content: space-evenly;
+  background-color: grey;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  padding: 0.5rem;
+}
+.First img {
+  width: 300px;
+  height: 300px;
+  padding: 0.5rem;
+}
+
+.First {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 60%;
+  width: 60%;
+}
+
+.Jeux {
+  display: flex;
+  text-align: center;
+  height: 33%;
+  width: 33%;
+}
+
+.MiseAvant {
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  padding-bottom: 4%;
+  background-color: rgba(196, 187, 176, 0.753);
+  margin: 2%;
+}
+
+.ResultAvant {
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  padding-bottom: 4%;
+  background-color: rgba(196, 187, 176, 0.753);
+  margin: 2%;
+}
+
+.Liste {
+  border-style: solid;
+  padding: 2%;
+  padding-bottom: 4%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 5%;
+  background-color: rgba(196, 187, 176, 0.753);
+  margin: 2%;
+}
+
+fieldset {
+  position: relative;
+  left: 20%;
+  border-style: solid;
+  width: 60%;
+  padding: 2%;
+  background-color: white;
+  margin: 2%;
+}
